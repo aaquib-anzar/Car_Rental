@@ -1,0 +1,32 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+{% csrf_token %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <span class="navbar-brand">Registration Form</span>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-info me-2" href="/car_dealer_portal/login/">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-info" href="/">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="text-center">
+  <p class="lead">
+    Registered Successfully!
+  </p>
+  <p class="lead">
+    Now go to the 
+    <a class="btn btn-info" href="/car_dealer_portal/login/">Login Page</a>
+    and login!
+  </p>
+</div>
+
+{% endblock %}

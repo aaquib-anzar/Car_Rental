@@ -1,0 +1,19 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <span class="navbar-text">
+          Customer Portal: {{ user.username }}
+      </span>
+      <div class="navbar-nav ms-auto">
+          <a class="nav-link btn btn-outline-light me-2" href="/customer_portal/manage/">Manage</a>
+          <a class="nav-link btn btn-outline-info me-2" href="/customer_portal/search/">Search Cars</a>
+          <a class="nav-link btn btn-outline-light" href="/customer_portal/logout/">Logout</a>
+      </div>
+  </div>
+</nav>
+<hr>
+<div class="container text-center" style="padding: 60px;">
+  
+</div>
+{% endblock %}

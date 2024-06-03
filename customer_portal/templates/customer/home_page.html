@@ -1,0 +1,35 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand">
+            Customer Portal: {{ user.username }}
+        </span>
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link btn btn-outline-info me-2" href="/customer_portal/manage/">Manage</a>
+            <a class="nav-link btn btn-outline-info" href="/customer_portal/logout/">Logout</a>
+        </div>
+    </div>
+</nav>
+<hr>
+<!-- Welcome Message -->
+<div class="container text-center my-4">
+    <h1 class="display-4">Welcome Traveller, You shall drive the car of your dreams!</h1>
+</div>
+
+<!-- Main Content: Car Image with Search Button -->
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center" style="height: 80vh;">
+    <div class="col-md-6 position-relative">
+      <img src="{% static 'images/carPics.jpg' %}" class="img-fluid" alt="Car Image">
+      <div class="position-absolute top-50 start-50 translate-middle">
+          <a class="btn btn-danger btn-lg" href="/customer_portal/search/"><strong>Search for Rental Cars</strong></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

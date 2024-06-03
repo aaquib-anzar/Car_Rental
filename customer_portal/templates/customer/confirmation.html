@@ -1,0 +1,40 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <span class="navbar-brand">Customer Portal: {{ user.username }}</span>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link btn btn-outline-info me-2" href="/customer_portal/manage/">Manage</a>
+        <a class="nav-link btn btn-outline-info me-2" href="/customer_portal/search/">Search Cars</a>
+        <a class="nav-link btn btn-outline-info me-2" href="/car_dealer_portal/logout/">Logout</a>
+          
+      </div>
+  </div>
+</nav>
+<hr>
+
+
+
+<div class="container text-center position-relative" style="height:300px;">
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <b class="h3">Car: {{ vehicle.car_name }}</b>
+    <form class="needs-validation mt-4" action="/customer_portal/confirmed/" method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            <b class="h4">Price: ${{ cost_per_day }} per day</b>
+        </div>
+        <div class="mb-3">
+            <label for="days" class="form-label h3">How many days?</label>
+            <input type="number" class="form-control form-control-sm" id="days" name="days" placeholder="2" required>
+            <div class="invalid-feedback">
+                Please enter the number of days.
+            </div>
+        </div>
+        <input type="hidden" name="id" value="{{ vehicle.id }}">
+        <button type="submit" class="btn btn-success btn-lg mt-3">Confirm My Order</button>
+    </form>
+</div>
+</div>
+
+{% endblock %}

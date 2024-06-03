@@ -1,0 +1,38 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-text">
+            Customer Portal: {{ user.username }}
+        </span>
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link btn btn-outline-light me-2" href="/customer_portal/manage/">Manage</a>
+            <a class="nav-link btn btn-outline-light me-2" href="/customer_portal/logout/">Logout</a>
+            <a class="nav-link btn btn-outline-light" href="/customer_portal/search/">Search Cars</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container my-5">
+    <h3 class="mb-4 text-center"><b>Order Completed</b></h3>
+    <div class="text-center">
+        <div class="container" style="height: 400px;">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div>
+                    <b>Your Vehicle Order Has Been Processed!</b><br><br>
+                    <b>Total Rent :</b> ${{ order.rent }}<br><br>
+                    <b>Vehicle :</b> {{ order.vehicle.car_name }}<br><br>
+                    <b>Duration :</b> {{ order.days }} days<br><br>
+                    <b>Car-Dealer :</b> {{ order.car_dealer.car_dealer.first_name }} {{ order.car_dealer.car_dealer.last_name }}<br><br>
+                    <b>Car-Dealer's Contact:</b> {{ order.car_dealer.mobile }}<br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

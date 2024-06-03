@@ -1,0 +1,51 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand">Car Dealer Portal: {{ user.username }}</span>
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link btn btn-outline-info me-2" href="/car_dealer_portal/auth/">Home</a>
+            <a class="nav-link btn btn-outline-info me-2" href="/car_dealer_portal/order_list/">Orders</a>
+            <a class="nav-link btn btn-outline-info me-2" href="/car_dealer_portal/manage_vehicles/">Vehicles</a>
+            <a class="nav-link btn btn-outline-info me-2" href="/car_dealer_portal/history/">Earnings: ${{ wallet }}</a>
+            <a class="nav-link btn btn-outline-info" href="/car_dealer_portal/logout/">Logout</a>
+        </div>
+    </div>
+</nav>
+<hr>
+<div class="container mt-5">
+    <h3 class="text-center mb-4"><b>Posted Vehicles</b></h3>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Car</th>
+                    <th>Color</th>
+                    <th>Capacity</th>
+                    <th>Pincode</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vehicle in vehicle_list %}
+                <tr>
+                    <td>{{ vehicle.car_name }}</td>
+                    <td>{{ vehicle.color }}</td>
+                    <td>{{ vehicle.capacity }} Seats</td>
+                    <td>{{ vehicle.area.pincode }}</td>
+                    <td>{{ vehicle.area.city }}</td>
+                    <td>
+                        <form action="/car_dealer_portal/delete/" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ vehicle.id }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

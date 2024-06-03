@@ -1,0 +1,59 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+     <div class="navbar-nav ms-auto">
+        <a class="nav-link btn btn-outline-info me-2" href="/car_dealer_portal/login/">Login</a>
+        <a class="nav-link btn btn-outline-info me-2" href="/">Home</a>
+              
+      </div>
+  </div>
+</nav>
+<hr>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 1000px;">
+  <div class="w-50">
+    <h3 class="text-center bg-dark text-white py-3">Registration Form</h3>
+    <form action="/car_dealer_portal/registration/" method="POST" class="p-4 border rounded bg-light">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstname" name="firstname">
+      </div>
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastname" name="lastname">
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+      <div class="mb-3">
+        <label for="mobile" class="form-label">Contact</label>
+        <input type="text" class="form-control" id="mobile" name="mobile">
+      </div>
+      <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" name="city">
+      </div>
+      <div class="mb-3">
+        <label for="pincode" class="form-label">Pincode</label>
+        <input type="text" class="form-control" id="pincode" name="pincode">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'car_dealer/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 d-flex align-items-center justify-content-center right-side">
+      <div class="form-2-wrapper">
+
+        <h2 class="text-center mb-4">Sign Into Your Account</h2>
+        <form action="/car_dealer_portal/auth/" method="POST">
+          {% csrf_token %}
+          <div class="mb-3 form-box">
+            <input type="text" class="form-control text-light" id="username" name="username" placeholder="Enter Your Username" required>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password" required>
+          </div>
+          <div class="mb-3">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Remember me</label>
+              <a href="forget-3.html" class="text-decoration-none float-end">Forget Password</a>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-outline-secondary login-btn w-100 mb-3">Login</button>
+        </form>
+
+        <!-- Register Link -->
+        <p class="text-center register-test mt-3">Don't have an account? <a href="/car_dealer_portal/register/" class="text-primary float-end">Register here</a></p>
+        <p class="text-center register-test mt-3">Go to Home? <a href="/" class="text-primary float-end">Home</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+</html>
