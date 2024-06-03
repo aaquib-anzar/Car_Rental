@@ -1,6 +1,6 @@
-**Log on to Freeprojectscodes.com for more projects!**
 
-**Developed By Hardik pnsp**
+
+**Developed By Aaquib**
 
 **Instructions**
 - Install the Requirements: pip install -r requirements.txt
